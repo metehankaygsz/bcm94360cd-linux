@@ -1,0 +1,9 @@
+repository:
+  name: bcm94360cd-linux
+  description: Offline Broadcom BCM94360CD and BCM4360 Wi-Fi driver installer for Ubuntu Linux
+  topics: broadcom, bcm94360cd, bcm4360, linux, ubuntu, wifi, dkms, offline-installer, mac-pro-2013, ubuntu-2604
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  has_downloads: true
+

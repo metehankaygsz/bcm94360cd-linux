@@ -1,0 +1,63 @@
+name: Installation problem
+description: Report a reproducible installation or driver failure
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include passwords, Wi-Fi credentials, or other secrets.
+
+  - type: input
+    id: computer
+    attributes:
+      label: Computer model
+      description: Include the model identifier when available.
+      placeholder: Mac Pro Late 2013 (MacPro6,1)
+    validations:
+      required: true
+
+  - type: input
+    id: pci
+    attributes:
+      label: Wireless PCI device
+      description: Output from `lspci -nnk | grep -A3 -i network`
+      placeholder: Broadcom Inc. BCM4360 [14e4:43a0]
+    validations:
+      required: true
+
+  - type: input
+    id: ubuntu
+    attributes:
+      label: Ubuntu version
+      placeholder: Ubuntu 26.04 LTS
+    validations:
+      required: true
+
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel
+      description: Output from `uname -r`
+      placeholder: 7.0.0-14-generic
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Explain what happened and what you expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Include relevant sections from the installer log and `dkms status`.
+      render: shell
+    validations:
+      required: true
+

@@ -1,0 +1,55 @@
+name: Hardware compatibility report
+description: Report a tested BCM94360CD system
+title: "[Hardware]: "
+labels:
+  - hardware
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Exact computer model
+    validations:
+      required: true
+
+  - type: input
+    id: pci
+    attributes:
+      label: PCI ID
+      placeholder: 14e4:43a0
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Distribution and version
+      placeholder: Ubuntu 26.04 LTS
+    validations:
+      required: true
+
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel
+    validations:
+      required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Installation and Wi-Fi succeeded
+        - Driver installed but Wi-Fi did not work
+        - Installation failed
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Include adapter information, commands used, and relevant logs.
+    validations:
+      required: true
+
