@@ -181,13 +181,17 @@ if ! modprobe wl; then
     die "The wl module failed to load."
 fi
 
-command -v rfkill >/dev/null 2>&1 && rfkill unblock wifi || true
+if command -v rfkill >/dev/null 2>&1; then
+    rfkill unblock wifi || true
+fi
 if command -v nmcli >/dev/null 2>&1; then
     nmcli radio wifi on || true
 fi
 
 WIRELESS_INTERFACE=""
-command -v udevadm >/dev/null 2>&1 && udevadm settle || true
+if command -v udevadm >/dev/null 2>&1; then
+    udevadm settle || true
+fi
 
 for _attempt in {1..10}; do
     for interface_path in /sys/class/net/*; do
@@ -201,7 +205,9 @@ for _attempt in {1..10}; do
     sleep 1
 done
 
-command -v nmcli >/dev/null 2>&1 && nmcli device status || true
+if command -v nmcli >/dev/null 2>&1; then
+    nmcli device status || true
+fi
 
 [[ -n "$WIRELESS_INTERFACE" ]] ||
     die "The wl module loaded, but no network interface was created."
